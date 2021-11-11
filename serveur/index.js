@@ -1,13 +1,16 @@
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 
-app.get('/characters', async (req, res) => {
-  res.status(404).send('Route not found! ');
+app.get('/code', async (req, res) => {
+  const code = [{ value: 'bk99999' }, { value: 'bk99999' }];
+  res.send(code);
 });
 
 app.use('/', (req, res) => {
-  res.status(404).send('Route not found! ');
+  res.send('API hi');
 });
 
 app.listen(5050, () => {
