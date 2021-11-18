@@ -14,73 +14,14 @@ app.get('/code', async (req, res) => {
     const page = await browser.newPage();
     await page.goto('https://www.bk-feedback-de.com/Index.aspx?c=051011');
 
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-    await page
-      .waitForSelector('#NextButton')
-      .then(() => page.click('#NextButton'));
-
-    // for (let index = 0; index < 21; index + 1) {
-    //   page.waitForSelector('#NextButton').then(() => page.click('#NextButton'));
-    // }
+    /* eslint-disable */
+    for (let index = 0; index < 21; index += 1) {
+      await page
+        .waitForSelector('#NextButton')
+        .then(() => page.click('#NextButton'))
+        .then(() => console.log(index));
+    }
+    /* eslint-disable */
 
     // Take result in Final page.
     await page.waitForSelector('.ValCode');
@@ -98,5 +39,5 @@ app.use('/', (req, res) => {
 });
 
 app.listen(5050, () => {
-  console.log('Terra Battle API now available on http://localhost:5050 !');
+  console.log('API now available on http://localhost:5050 !');
 });
