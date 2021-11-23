@@ -40,6 +40,7 @@ export default function GetCode() {
       </Welcome>
       <Code>{results}</Code>
       {/* <Refresh>Refresh</Refresh> */}
+
       <BurgerDown />
     </>
   );
@@ -125,69 +126,70 @@ const Sesame = styled.div`
   position: relative;
   background-color: #fff;
   clip-path: ellipse(16% 43% at 50% 50%);
-  animation: SessamShake 1s infinite;
 
   &:nth-child(1) {
     top: 40px;
     left: 90px;
+    animation: SessamShake 5s infinite 100ms;
+    transform: rotate(3deg);
   }
   &:nth-child(2) {
     top: 10px;
     left: 140px;
+    animation: SessamShake 5s infinite 200ms;
+    transform: rotate(-5deg);
   }
   &:nth-child(3) {
     top: -20px;
     left: 200px;
+    animation: SessamShake 5s infinite 300ms;
+    transform: rotate(8deg);
   }
   &:nth-child(4) {
     top: -50px;
     left: 260px;
+    animation: SessamShake 5s infinite 400ms;
+    transform: rotate(-7deg);
   }
   &:nth-child(5) {
     top: 0px;
     left: 50px;
+    animation: SessamShake 5s infinite 500ms;
+    transform: rotate(5deg);
   }
   &:nth-child(6) {
     top: -30px;
     left: 110px;
+    animation: SessamShake 5s infinite 600ms;
+    transform: rotate(8deg);
   }
   &:nth-child(7) {
     top: -60px;
     left: 170px;
+    animation: SessamShake 5s infinite 700ms;
+    transform: rotate(-8deg);
   }
   &:nth-child(8) {
     top: -90px;
     left: 230px;
+    animation: SessamShake 5s infinite 800ms;
+    transform: rotate(-3deg);
   }
   &:nth-child(9) {
     top: -120px;
     left: 300px;
+    animation: SessamShake 5s infinite 900ms;
+    transform: rotate(10deg);
   }
+
   @keyframes SessamShake {
     0%,
-    100% {
+    20% {
       transform: translateY(0);
     }
 
-    10%,
-    30%,
-    50%,
-    70% {
-      transform: translateY(-8px);
-    }
-
-    20%,
-    40%,
-    60% {
-      transform: translateY(8px);
-    }
-
-    80% {
-      transform: translateY(6.4px);
-    }
-
-    90% {
-      transform: translateY(-6.4px);
+    10% {
+      transform: translateY(-7px) rotate(5deg);
     }
   }
 `;
