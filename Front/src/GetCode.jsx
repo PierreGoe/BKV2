@@ -23,7 +23,7 @@ export default function GetCode() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5050/test')
+      .get('http://localhost:5050/code')
       .then(({ data }) => {
         setResults(data[0].bkcode);
       })
