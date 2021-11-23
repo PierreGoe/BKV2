@@ -1,22 +1,38 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
+const size = {
+  mobileS: '320px',
+  mobileM: '375px',
+  mobileL: '425px',
+  tablet: '768px',
+  laptop: '1024px',
+  laptopL: '1440px',
+  desktop: '2560px',
+};
+
+const device = {
+  mobileS: `(min-width: ${size.mobileS})`,
+  mobileM: `(min-width: ${size.mobileM})`,
+  mobileL: `(min-width: ${size.mobileL})`,
+  tablet: `(min-width: ${size.tablet})`,
+  laptop: `(min-width: ${size.laptop})`,
+  laptopL: `(min-width: ${size.laptopL})`,
+  desktop: `(min-width: ${size.desktop})`,
+  desktopL: `(min-width: ${size.desktop})`,
+};
+
 const GlobalStyle = createGlobalStyle`
 body{
   /* background-color: #512212; */
   background-color: #f5ebdc;
   /* color: #FFF; */
-  color: black;
-  font-family: Roboto Condensed;
-  display:flex;
-  align-items: center;
-  height:100vh;
-  margin: auto;
-  justify-content: center;
-  text-align: center;
-  max-width: 400px;
+ 
+  
 
-
+  
+ 
 }
+
 `;
 const TitleS = styled.h1`
   font-size: 60px;
@@ -33,6 +49,9 @@ const CodeS = styled.section`
   font-size: 22px;
   margin-bottom: 30px;
   font-family: 'Paytone One', sans-serif;
+  padding: 1rem;
+  border-radius: 1rem;
+  text-shadow: 5px 5px #fff;
 `;
 const InfoS = styled.button`
   background: rgb(247, 168, 0);
@@ -44,6 +63,14 @@ const InfoS = styled.button`
   width: 200px;
   height: 40px;
   text-transform: uppercase;
+  margin: auto;
+
+  border: none;
+  @media ${device.tablet} {
+    margin-left: auto;
+    margin-right: 3rem;
+    margin-top: auto;
+  }
 `;
 const BurgerUpS = styled.div`
   & {
@@ -143,6 +170,10 @@ const SesameS = styled.div`
     }
   }
 `;
+const TheBurger = styled.div`
+  max-width: 400px;
+  margin-top: auto;
+`;
 export {
   GlobalStyle,
   TitleS,
@@ -152,4 +183,5 @@ export {
   BurgerUpS,
   BurgerDownS,
   SesameS,
+  TheBurger,
 };
