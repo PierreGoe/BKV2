@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 const size = {
   mobileS: '320px',
   mobileM: '375px',
-  mobileL: '425px',
+  mobileL: '400px',
   tablet: '768px',
   laptop: '1024px',
   laptopL: '1440px',
@@ -35,23 +35,35 @@ body{
 
 `;
 const TitleS = styled.h1`
-  font-size: 60px;
+  font-size: 10vw;
+  padding: 1rem;
   font-family: 'Paytone One', sans-serif;
   margin-bottom: 30px;
   /* color: #fe8630; */
   color: #d52201;
+  overflow: hidden;
+  @media ${device.mobileL} {
+    font-size: 60px;
+  }
 `;
 const WelcomeS = styled.p`
-  font-size: 16px;
+  font-size: 7vw;
+  padding: 1rem;
   margin-bottom: 30px;
+  @media ${device.mobileL} {
+    font-size: 24px;
+  }
 `;
 const CodeS = styled.section`
-  font-size: 22px;
+  font-size: 7vw;
   margin-bottom: 30px;
   font-family: 'Paytone One', sans-serif;
   padding: 1rem;
   border-radius: 1rem;
   text-shadow: 5px 5px #fff;
+  @media ${device.mobileL} {
+    font-size: 24px;
+  }
 `;
 const InfoS = styled.button`
   background: rgb(247, 168, 0);
@@ -61,9 +73,12 @@ const InfoS = styled.button`
   color: white;
   border-radius: 25px;
   width: 200px;
-  height: 40px;
   text-transform: uppercase;
   margin: auto;
+  margin-top: 4vh;
+  padding: 10px;
+  max-width: 200px;
+  width: 80vw;
 
   border: none;
   @media ${device.tablet} {
@@ -75,7 +90,9 @@ const InfoS = styled.button`
 const BurgerUpS = styled.div`
   & {
     background-color: #ff8532;
-    height: 180px;
+    max-width: ${size.mobileL};
+    max-height: 180px;
+    height: 20rem;
     border-radius: 200px 200px 15px 15px;
     border: 1px solid #fff;
     position: relative;
@@ -90,12 +107,19 @@ const BurgerUpS = styled.div`
     /* Position and color */
     box-shadow: 100px -165px #ffffff;
   }
+
+  @media (max-width: ${size.mobileL}) {
+    display: none;
+  }
 `;
 const BurgerDownS = styled.div`
   background-color: #ff8532;
   height: 50px;
   border-radius: 10px 10px 45px 45px;
   border: 1px solid #fff;
+  @media (max-width: ${size.mobileL}) {
+    display: none;
+  }
 `;
 const SesameS = styled.div`
   height: 30px;
@@ -171,7 +195,7 @@ const SesameS = styled.div`
   }
 `;
 const TheBurger = styled.div`
-  max-width: 400px;
+  max-width: ${size.mobileL};
   margin-top: auto;
 `;
 export {

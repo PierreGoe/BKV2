@@ -33,6 +33,7 @@ export default function GetCode() {
     <>
       <TheBurger>
         <GlobalStyle />
+
         <BurgerUpS>
           <SesameS />
           <SesameS />
