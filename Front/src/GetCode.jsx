@@ -9,6 +9,7 @@ import {
   BurgerUpS,
   BurgerDownS,
   SesameS,
+  TheBurger,
 } from './style';
 
 export default function GetCode() {
@@ -30,26 +31,28 @@ export default function GetCode() {
   }, []);
   return (
     <>
-      <GlobalStyle />
-      <BurgerUpS>
-        <SesameS />
-        <SesameS />
-        <SesameS />
-        <SesameS />
-        <SesameS />
-        <SesameS />
-        <SesameS />
-        <SesameS />
-        <SesameS />
-      </BurgerUpS>
-      <TitleS>BURGER KING CODE GENERATOR</TitleS>
-      <WelcomeS>
-        Welcome, you can use this code on the back of your checkout ticket to
-        win a product on your next visit.
-      </WelcomeS>
-      <CodeS>{results}</CodeS>
-      <BurgerDownS />
-      <InfoS />
+      <TheBurger>
+        <GlobalStyle />
+        <BurgerUpS>
+          <SesameS />
+          <SesameS />
+          <SesameS />
+          <SesameS />
+          <SesameS />
+          <SesameS />
+          <SesameS />
+          <SesameS />
+          <SesameS />
+        </BurgerUpS>
+        <TitleS>BURGER KING CODE GENERATOR</TitleS>
+        <WelcomeS>
+          Welcome, you can use this code on the back of your checkout ticket to
+          win a product on your next visit.
+        </WelcomeS>
+        <CodeS>{results}</CodeS>
+        <BurgerDownS />
+      </TheBurger>
+      <InfoS>More Info</InfoS>
     </>
   );
 }
