@@ -49,7 +49,7 @@ const now = new Date();
       process.exit(1);
     }
   } catch (err) {
-    console.warn('Beware, we had an error on GET /test !', err);
+    console.warn('Beware, we had an error on GET /code !', err);
     process.exit(1);
   }
 })();

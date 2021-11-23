@@ -27,7 +27,9 @@ export default function GetCode() {
       .then(({ data }) => {
         setResults(data[0].bkcode);
       })
-      .catch();
+      .catch(() => {
+        console.log('error with API call');
+      });
   }, []);
   return (
     <>

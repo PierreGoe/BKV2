@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/test', async (req, res) => {
+app.get('/code', async (req, res) => {
   try {
     const [rows] = await db.query(`
     
@@ -22,12 +22,12 @@ app.get('/test', async (req, res) => {
 
     res.send(rows);
   } catch (err) {
-    console.warn('Beware, we had an error on GET /test !', err);
+    console.warn('Beware, we had an error on GET /code !', err);
     res.status(500).send('Achtung ! I iz broken ! é_è');
   }
 });
 
-app.post('/test', async (req, res) => {
+app.post('/code', async (req, res) => {
   try {
     const { bkcode, date } = req.body;
     await db.query(
@@ -39,14 +39,14 @@ app.post('/test', async (req, res) => {
     );
     res.status(201).send(`code insert in DB`);
   } catch (err) {
-    console.warn('Beware, we had an error on POST /test!', err);
+    console.warn('Beware, we had an error on POST /code!', err);
     res.status(500).send('Achtung ! I iz broken ! é_è');
   }
 });
 
-app.use('/', (req, res) => {
-  res.send('API hi');
-});
+// app.use('/', (req, res) => {
+//   res.status(204).send('welcome, use /code');
+// });
 
 app.listen(5050, () => {
   console.log('API now available on http://localhost:5050 !');
