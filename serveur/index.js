@@ -15,35 +15,33 @@ app.get('/code', async (req, res) => {
     const IP = req.ip;
     const [UserInDB] = await db.query(
       `
-    SELECT lastVisit userIP FROM Logs WHERE  userIP=  ? AND DATE_ADD(lastVisit,INTERVAL 5 MINUTE) > NOW();
+    SELECT lastVisit userIP FROM Logs WHERE  userIP=  ? AND DATE_ADD(lastVisit,INTERVAL 1 MINUTE) > NOW();
     `,
       [IP]
     );
-    console.log(UserInDB);
     if (UserInDB.length) {
-      throw new Error('Your are in DB');
-    }
-
-    const [rows] = await db.query(`
+      res.status(403).send('Error: 403');
+    } else {
+      const [rows] = await db.query(`
     
     SELECT bkcode FROM Codes
-    ORDER BY bkcode ASC
+    ORDER BY bkcode DESC
     LIMIT 1;
     `);
-    await db.query(`
+      // await db.query(`
 
-    DELETE FROM Codes LIMIT 1
-    `);
-    await db.query(
-      `
+      // DELETE FROM Codes LIMIT 1
+      // `);
+      await db.query(
+        `
     INSERT INTO Logs (UserIp, lastVisit) VALUES (? , ?);`,
-      [IP, date.format(now, 'YYYY/MM/DD HH:mm:ss')]
-    );
-    console.log(rows);
-    console.log(IP);
+        [IP, date.format(now, 'YYYY/MM/DD HH:mm:ss')]
+      );
 
-    res.send(rows);
+      res.send(rows);
+    }
   } catch (err) {
+    console.log(`-----${err}`);
     console.warn('Beware, we had an error on GET /code !', err);
     res.status(500).send('Achtung ! I iz broken ! é_è');
   }
