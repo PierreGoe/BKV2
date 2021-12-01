@@ -53,7 +53,3 @@ const now = new Date();
     process.exit(1);
   }
 })();
-
-// cron.schedule('* * * * *', () => {
-//   getCode();
-// });
