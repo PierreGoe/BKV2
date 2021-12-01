@@ -20,11 +20,20 @@ export default function GetCode() {
       .get('http://localhost:5050/code')
       .then(({ data }) => {
         setResults(data[0].bkcode);
+        localStorage.setItem('previouCode', data[0].bkcode);
       })
-      .catch(() => {
-        setResults('No code found');
+      .catch((error) => {
+        console.log(error);
+        if (error.response.status === 403) {
+          setResults(
+            ` You already had a code! Wait 5 minutes for take a new code. Your previous code is: ${localStorage.getItem(
+              'previouCode'
+            )}`
+          );
+        } else setResults('Error contact Admin');
       });
   }, []);
+
   return (
     <>
       <TheBurger>
@@ -49,7 +58,9 @@ export default function GetCode() {
         <CodeS>{results}</CodeS>
         <BurgerDownS />
       </TheBurger>
-      <InfoS>More Info</InfoS>
+      <InfoS>
+        <a href="/Info">More Info</a>
+      </InfoS>
     </>
   );
 }
