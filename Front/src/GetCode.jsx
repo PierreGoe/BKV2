@@ -16,22 +16,25 @@ export default function GetCode() {
   const [results, setResults] = useState('');
 
   useEffect(() => {
-    axios
-      .get('http://localhost:5050/code')
-      .then(({ data }) => {
-        setResults(data[0].bkcode);
-        localStorage.setItem('previouCode', data[0].bkcode);
-      })
-      .catch((error) => {
-        console.log(error);
-        if (error.response.status === 403) {
-          setResults(
-            ` You already had a code! Wait 5 minutes for take a new code. Your previous code is: ${localStorage.getItem(
-              'previouCode'
-            )}`
-          );
-        } else setResults('Error contact Admin');
-      });
+    try {
+      axios
+        .get('http://192.168.1.8:5050/code')
+        .then(({ data }) => {
+          setResults(data[0].bkcode);
+          localStorage.setItem('previouCode', data[0].bkcode);
+        })
+        .catch((error) => {
+          if (error.response.status === 403) {
+            setResults(
+              ` You already had a code! Wait 5 minutes for take a new code. Your previous code is: ${localStorage.getItem(
+                'previouCode'
+              )}`
+            );
+          } else setResults('Error contact Admin');
+        });
+    } catch (error) {
+      setResults('Error contact Admin');
+    }
   }, []);
 
   return (
