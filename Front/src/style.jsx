@@ -79,6 +79,16 @@ const InfoS = styled.button`
   padding: 10px;
   max-width: 200px;
   width: 80vw;
+  a {
+    color: #0060b6;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #00a0c6;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
   border: none;
   @media ${device.tablet} {
