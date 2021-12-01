@@ -13,13 +13,7 @@ import {
 } from './style';
 
 export default function GetCode() {
-  // const [code] = useState('');
   const [results, setResults] = useState('');
-  // const [button, setButton] = useState(false);
-
-  // const reversButtonValue = () => {
-  //   setButton(!button);
-  // };
 
   useEffect(() => {
     axios
@@ -28,7 +22,7 @@ export default function GetCode() {
         setResults(data[0].bkcode);
       })
       .catch(() => {
-        console.log('error with API call');
+        setResults('No code found');
       });
   }, []);
   return (
