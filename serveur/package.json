@@ -25,7 +25,6 @@
     }
   },
   "dependencies": {
-    "axios": "^0.24.0",
     "cors": "^2.8.5",
     "date-and-time": "^2.0.1",
     "dotenv": "^9.0.2",
